@@ -36,13 +36,12 @@ namespace BetterUnitTests.ExpressiveSetup
         It should_calculate_the_sales_tax = () => order.SalesTax.ShouldEqual(Math.Round(order.SubTotal*taxRate, 2));
         It should_calculate_the_total = () => order.Total.ShouldEqual(order.SubTotal + order.SalesTax);
 
-        static decimal AssertLineItemTotal(OrderItem orderItem, CatalogItem catalogItem)
+        static void AssertLineItemTotal(OrderItem orderItem, CatalogItem catalogItem)
         {
-            return order
+            order
                 .Items
                 .Single(x => x.ItemCode == orderItem.ItemCode)
-                .LineTotal
-                .ShouldEqual(orderItem.Quantity*catalogItem.Price);
+                .LineTotal.ShouldEqual(orderItem.Quantity*catalogItem.Price);
         }
 
         static void AssertDescriptionValue(OrderItem orderItem, CatalogItem catalogItem)
