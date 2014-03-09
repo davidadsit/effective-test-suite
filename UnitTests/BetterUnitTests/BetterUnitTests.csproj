@@ -1,0 +1,106 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{39768B01-8B47-4FF8-9DF0-5171AD0DEC82}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>BetterUnitTests</RootNamespace>
+    <AssemblyName>BetterUnitTests</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Machine.Specifications">
+      <HintPath>..\..\packages\Machine.Specifications.0.5.12\lib\net40\Machine.Specifications.dll</HintPath>
+    </Reference>
+    <Reference Include="Moq">
+      <HintPath>..\..\packages\Moq.4.0.10827\lib\NET40\Moq.dll</HintPath>
+    </Reference>
+    <Reference Include="nunit.framework">
+      <HintPath>..\..\packages\NUnit.2.6.2\lib\nunit.framework.dll</HintPath>
+    </Reference>
+    <Reference Include="StructureMap">
+      <HintPath>..\..\packages\structuremap.2.6.4.1\lib\net40\StructureMap.dll</HintPath>
+    </Reference>
+    <Reference Include="StructureMap.AutoMocking">
+      <HintPath>..\..\packages\structuremap.automocking.2.6.4.1\lib\net40\StructureMap.AutoMocking.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="ExpressiveSetup\Entities\Address.cs" />
+    <Compile Include="ExpressiveSetup\Entities\Customer.cs" />
+    <Compile Include="ExpressiveSetup\Entities\Name.cs" />
+    <Compile Include="ExpressiveSetup\Entities\Order.cs" />
+    <Compile Include="ExpressiveSetup\Entities\OrderItem.cs" />
+    <Compile Include="ExpressiveSetup\Entities\OrderLine.cs" />
+    <Compile Include="ExpressiveSetup\ObjectMothers\AddressMother.cs" />
+    <Compile Include="ExpressiveSetup\ObjectMothers\CatalogItemMother.cs" />
+    <Compile Include="ExpressiveSetup\Entities\CatalogItem.cs" />
+    <Compile Include="ExpressiveSetup\ObjectMothers\CustomerMother.cs" />
+    <Compile Include="ExpressiveSetup\ObjectMothers\OrderItemMother.cs" />
+    <Compile Include="ExpressiveSetup\OrderServiceSpecs.cs" />
+    <Compile Include="ExpressiveSetup\Services\ICatelogService.cs" />
+    <Compile Include="ExpressiveSetup\Services\ISalesTaxService.cs" />
+    <Compile Include="ExpressiveSetup\Services\OrderService.cs" />
+    <Compile Include="ExpressiveSetup\With_an_automocked.cs" />
+    <Compile Include="Fast\HandleFactory.cs" />
+    <Compile Include="Fast\HandleGenerationTests.cs" />
+    <Compile Include="Fast\HandlePersistence.cs" />
+    <Compile Include="Fast\IHandlePersistence.cs" />
+    <Compile Include="Fast\MoqExtensions.cs" />
+    <Compile Include="Settings.cs" />
+    <Compile Include="StopLightTestTakeTwo\AllStopWhenPreviouslyEastWestCautionTests.cs" />
+    <Compile Include="StopLightTestTakeTwo\AllStopWhenPreviouslyNorthSouthCautionTests.cs" />
+    <Compile Include="StopLightTestTakeTwo\EastWestCautionTests.cs" />
+    <Compile Include="StopLightTestTakeTwo\EastWestFlowTests.cs" />
+    <Compile Include="StopLightTestTakeTwo\Entities\LightColor.cs" />
+    <Compile Include="StopLightTestTakeTwo\NorthSouthCautionTests.cs" />
+    <Compile Include="StopLightTestTakeTwo\States\AllStop.cs" />
+    <Compile Include="StopLightTestTakeTwo\States\EastWestCaution.cs" />
+    <Compile Include="StopLightTestTakeTwo\States\EastWestFlow.cs" />
+    <Compile Include="StopLightTestTakeTwo\States\NorthSouthCaution.cs" />
+    <Compile Include="StopLightTestTakeTwo\States\NorthSouthFlow.cs" />
+    <Compile Include="StopLightTestTakeTwo\States\StopLightState.cs" />
+    <Compile Include="StopLightTestTakeTwo\Entities\StopLight.cs" />
+    <Compile Include="StopLightTestTakeTwo\NorthSouthFlowTests.cs" />
+    <Compile Include="StopLightTestTakeTwo\StopLightTests.cs" />
+    <Compile Include="WellNamed\IntExtensions.cs" />
+    <Compile Include="WellNamed\IntToRomanNumeralConversionTests.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
